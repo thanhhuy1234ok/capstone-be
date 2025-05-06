@@ -1,3 +1,4 @@
+import { Course } from "@/course/entities/course.entity";
 import { Role } from "@/roles/entities/role.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
@@ -33,6 +34,12 @@ export class User {
   @ManyToOne(() => Role, { nullable: true, eager: true })
   @JoinColumn({ name: 'role_id' })
   role: Role;
+
+  @ManyToOne(() => Course, (course) => course.students, {
+    nullable: true,
+    eager: true,
+  })
+  course: Course;
 
   /** Column Token */
   @Column({ nullable: true })

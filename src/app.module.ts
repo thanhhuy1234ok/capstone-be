@@ -8,6 +8,7 @@ import { TypeOrmConfigService } from './configs/connectDB.config';
 import { RolesModule } from './roles/roles.module';
 import { AuthModule } from './auth/auth.module';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { CourseModule } from './course/course.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
     UsersModule,
     RolesModule,
     AuthModule,
+    CourseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
