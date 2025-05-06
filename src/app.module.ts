@@ -9,6 +9,7 @@ import { RolesModule } from './roles/roles.module';
 import { AuthModule } from './auth/auth.module';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { CourseModule } from './course/course.module';
+import { MajorModule } from './major/major.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { CourseModule } from './course/course.module';
     RolesModule,
     AuthModule,
     CourseModule,
+    MajorModule,
   ],
   controllers: [AppController],
   providers: [AppService],

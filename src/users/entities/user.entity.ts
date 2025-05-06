@@ -1,4 +1,5 @@
 import { Course } from "@/course/entities/course.entity";
+import { Major } from "@/major/entities/major.entity";
 import { Role } from "@/roles/entities/role.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
@@ -40,6 +41,13 @@ export class User {
     eager: true,
   })
   course: Course;
+
+  @ManyToOne(() => Major, (major) => major.users, {
+    nullable: true,
+    eager: true,
+  })
+  @JoinColumn({ name: 'major_id' })
+  major: Major;
 
   /** Column Token */
   @Column({ nullable: true })
