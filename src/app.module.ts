@@ -12,6 +12,10 @@ import { CourseModule } from './course/course.module';
 import { MajorModule } from './major/major.module';
 import { SemesterModule } from './semester/semester.module';
 import { SubjectModule } from './subject/subject.module';
+import { CampusModule } from './campus/campus.module';
+import { BuildingModule } from './building/building.module';
+import { FloorModule } from './floor/floor.module';
+import { RoomModule } from './room/room.module';
 
 @Module({
   imports: [
@@ -35,6 +39,10 @@ import { SubjectModule } from './subject/subject.module';
     MajorModule,
     SemesterModule,
     SubjectModule,
+    CampusModule,
+    BuildingModule,
+    FloorModule,
+    RoomModule,
   ],
   controllers: [AppController],
   providers: [AppService],
