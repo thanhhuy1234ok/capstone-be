@@ -22,7 +22,10 @@ export class MajorService {
       throw new BadRequestException('Code đã tồn tại');
     }
 
-    const major = this.majorRepository.create(createMajorDto);
+    const major = this.majorRepository.create({
+      ...createMajorDto,
+      code: createMajorDto.code.toLocaleUpperCase()
+    });
     return await this.majorRepository.save(major);
   }
 
