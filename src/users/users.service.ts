@@ -10,6 +10,8 @@ import aqp from 'api-query-params';
 import { ChangePasswordAuthDto, ForgotPasswordAuthDto } from '@/auth/dto/create-user.dto';
 import { IUser } from '@/helpers/types/user.interface';
 import { DateFormatter } from '@/helpers/func/formatTime';
+import { Major } from '@/major/entities/major.entity';
+import { Course } from '@/course/entities/course.entity';
 
 @Injectable()
 export class UsersService {
@@ -19,6 +21,12 @@ export class UsersService {
 
     @InjectRepository(Role)
     private roleRepository: Repository<Role>,
+
+    @InjectRepository(Major)
+    private majorRepository: Repository<Major>,
+
+    @InjectRepository(Course)
+    private courseRepository: Repository<Major>,
   ) {}
   async create(createUserDto: CreateUserDto) {
     const hashPassword = await getHashPassword(createUserDto.password);
@@ -27,11 +35,38 @@ export class UsersService {
       where: { id: createUserDto.role },
     });
 
+       let major = null;
+       if (createUserDto.major) {
+         major = await this.majorRepository.findOne({
+           where: { id: +createUserDto.major },
+         });
+
+         if (!major) {
+           throw new BadRequestException(
+             `Major with ID ${createUserDto.major} not found`,
+           );
+         }
+       }
+       let courseEntity = null;
+       if (createUserDto.course) {
+         const cohort = await this.courseRepository.findOne({
+           where: { id: createUserDto.course },
+         });
+         if (!cohort) {
+           throw new BadRequestException('Course not found');
+         }
+         courseEntity = cohort;
+       }
+
     const newUser = this.usersRepository.create({
       ...createUserDto,
       password: hashPassword,
       role: role,
+      major,
+      course:courseEntity
     });
+
+        
 
     return await this.usersRepository.save(newUser);
   }

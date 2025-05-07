@@ -35,7 +35,7 @@ export class CreateUserDto {
   class?: number;
 
   @IsOptional()
-  yearOfAdmission?: number;
+  course?: number;
 }
 
 export class CreateManyUserDto {

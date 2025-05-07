@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { CourseModule } from './course/course.module';
 import { MajorModule } from './major/major.module';
+import { SemesterModule } from './semester/semester.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { MajorModule } from './major/major.module';
     AuthModule,
     CourseModule,
     MajorModule,
+    SemesterModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,3 +1,4 @@
+import { Semester } from "@/semester/entities/semester.entity";
 import { User } from "@/users/entities/user.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -17,6 +18,6 @@ export class Course {
   })
   students: User[];
 
-//   @OneToMany(() => Semester, (semester) => semester.cohort)
-//   semesters: Semester[];
+  @OneToMany(() => Semester, (semester) => semester.course)
+  semesters: Semester[];
 }
