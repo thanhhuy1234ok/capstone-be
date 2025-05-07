@@ -63,8 +63,8 @@ export class SemesterService {
     const defaultLimit = limit || 10;
 
     const whereCondition = [];
-    if (filter.name) {
-      whereCondition.push({ name: ILike(`%${filter.name}%`) });
+    if (filter.course) {
+        whereCondition.push({ course: { id: Number(filter.course) } });
     }
 
     const where = whereCondition.length ? whereCondition : filter;

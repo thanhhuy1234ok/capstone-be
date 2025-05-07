@@ -11,6 +11,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { CourseModule } from './course/course.module';
 import { MajorModule } from './major/major.module';
 import { SemesterModule } from './semester/semester.module';
+import { SubjectModule } from './subject/subject.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { SemesterModule } from './semester/semester.module';
     CourseModule,
     MajorModule,
     SemesterModule,
+    SubjectModule,
   ],
   controllers: [AppController],
   providers: [AppService],
