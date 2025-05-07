@@ -14,9 +14,6 @@ export class Subject {
   @Column({ nullable: true, default: 3 })
   credits: number;
 
-  @Column({ default: false })
-  isElective: boolean;
-
   @Column({ nullable: true })
   price: number;
 }

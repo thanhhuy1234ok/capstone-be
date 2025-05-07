@@ -12,10 +12,6 @@ export class CreateSubjectDto {
   @Max(6, { message: 'Số tín chỉ không được vượt quá 6' })
   credits: number;
 
-  @IsOptional()
-  @IsBoolean()
-  isElective:boolean
-
   @IsInt()
   @Min(0, { message: 'Giá môn học không được âm' })
   price: number;
