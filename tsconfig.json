@@ -22,6 +22,7 @@
       "@/*": ["./src/*"],
       "@core/*": ["./src/core/*"],
       "@helpers/*": ["./src/helpers/*"],
+      "@csvc/*":["./src/csvc/*"]
     }
   }
 }

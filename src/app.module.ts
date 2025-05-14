@@ -16,6 +16,9 @@ import { CampusModule } from './campus/campus.module';
 import { BuildingModule } from './building/building.module';
 import { FloorModule } from './floor/floor.module';
 import { RoomModule } from './room/room.module';
+import { FacilityCategoriesModule } from './csvc/facility_categories/facility_categories.module';
+import { SupplierModule } from './csvc/supplier/supplier.module';
+import { FacilitiesModule } from './csvc/facilities/facilities.module';
 
 @Module({
   imports: [
@@ -43,6 +46,9 @@ import { RoomModule } from './room/room.module';
     BuildingModule,
     FloorModule,
     RoomModule,
+    FacilityCategoriesModule,
+    SupplierModule,
+    FacilitiesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
